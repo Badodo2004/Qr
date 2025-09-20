@@ -1,0 +1,604 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 70px;
+    background: #222;
+    color: white;
+    padding: 20px 10px;
+    transition: width 0.3s;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+/* Menu Button */
+.menu-btn {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Sidebar expands on hover (default) */
+.sidebar:hover {
+    width: 220px;
+}
+
+/* Sidebar locked open */
+.sidebar.locked {
+    width: 220px;
+}
+
+.sidebar.locked:hover {
+    width: 220px; /* stays locked */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.sidebar ul li a i {
+    font-size: 20px;
+    min-width: 30px;
+}
+
+.sidebar ul li a span {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover ul li a span,
+.sidebar.locked ul li a span {
+    opacity: 1;
+}
+
+.sidebar ul li a:hover {
+    background: #444;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 30px;
+    background: #f4f4f4;
+       overflow-y: auto;    /* scrollable content */
+}
+
+.content h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70px;           /* collapsed width */
+    background: #222;
+    color: white;
+    padding: 20px 10px;
+    overflow: hidden;
+    transition: width 0.3s;
+}
+
+/* Sidebar expanded */
+.sidebar.expanded {
+    width: 220px;          /* expanded width */
+}
+
+/* Content */
+.content {
+    margin-left: 70px;     /* initial space for collapsed sidebar */
+    padding: 30px;
+    background: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto;
+    transition: margin-left 0.3s; /* smooth shift */
+}
+
+/* Shift content when sidebar is expanded */
+.sidebar.expanded ~ .content {
+    margin-left: 220px;    /* space for expanded sidebar */
+}
+
+/* Hover expand when unlocked */
+.sidebar.expanded {
+    width: 220px;
+}
+
+/* Locked (always expanded) */
+.sidebar.locked {
+    width: 220px;
+}
+
+/* Text visibility */
+.sidebar ul li a span {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar.expanded ul li a span,
+.sidebar.locked ul li a span {
+    opacity: 1;
+}
+
+.sidebar {
+    width: 70px;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.sidebar.expanded,
+.sidebar.locked {
+    width: 220px;
+}
+
+.sidebar ul li a span {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar.expanded ul li a span,
+.sidebar.locked ul li a span {
+    opacity: 1;
+}
+
+.sidebar .menu-item.active {
+    background: #1e90ff; /* highlight color */
+    color: #fff;
+    border-radius: 8px;
+}
+
+.sidebar .menu-item.active i {
+    color: #fff;
+}
+
+.menu-item.active {
+    background: #1e90ff; /* blue highlight */
+    color: white;
+    border-radius: 5px;
+}
+.menu-item.active i, 
+.menu-item.active span {
+    color: white;
+}
+/* Smooth expand/collapse */
+.sidebar {
+    transition: width 0.3s ease;
+    background: #111;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Smooth menu items */
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    color: #ccc;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+    background: rgba(30, 144, 255, 0.15);
+    color: #1e90ff;
+    transform: translateX(5px);
+}
+
+/* Active highlight */
+.sidebar ul li a.active {
+    background: #1e90ff;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Prevent icon color mismatch */
+.sidebar ul li a.active i {
+    color: #fff;
+}
+
+/* Smooth icon hover */
+.sidebar ul li a i {
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.sidebar ul li a:hover i {
+    color: #1e90ff;
+    transform: scale(1.2);
+}
+
+/* Card styling */
+.card {
+    background: #1e1e1e;            /* dark background */
+    color: #fff;                    /* white text */
+    padding: 20px;
+    border-radius: 12px;            /* rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);  /* soft shadow */
+    margin: 15px 0;
+    transition: all 0.3s ease;      /* smooth hover effect */
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-5px);    /* lift up */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* deeper shadow */
+    background: #252525;            /* slightly lighter bg */
+}
+/* Mobile view: sidebar always collapsed */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px !important;   /* keep it small */
+    }
+    .sidebar.expanded {
+        width: 60px !important;   /* prevent expansion */
+    }
+    .sidebar span { 
+        display: none;            /* hide text labels */
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh; /* full height */
+}
+
+.menu-list {
+    flex-grow: 1; /* pushes logout down */
+}
+
+.logout-list {
+    margin-bottom: 15px; /* some space at bottom */
+}
+
+/* ---------- Add Student form (place this at the END of dashboard.css) ---------- */
+.content .add-student-box {
+    max-width: 520px;
+    margin: 28px auto;
+    padding: 22px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.content .add-student-box h2 {
+    margin: 0 0 16px 0;
+    text-align: center;
+    color: #213547;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Inputs / selects */
+.content .add-student-box input[type="text"],
+.content .add-student-box input[type="date"],
+.content .add-student-box input[type="time"],
+.content .add-student-box select {
+    width: 100%;
+    padding: 11px 12px;
+    margin: 8px 0 14px 0;
+    border: 1px solid #d7dfe6;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fbfdff;
+    transition: border-color .12s ease, box-shadow .12s ease;
+}
+
+/* Focus state */
+.content .add-student-box input[type="text"]:focus,
+.content .add-student-box input[type="date"]:focus,
+.content .add-student-box input[type="time"]:focus,
+.content .add-student-box select:focus {
+    outline: none;
+    border-color: #2b8ddb;
+    box-shadow: 0 0 0 6px rgba(43,141,219,0.08);
+}
+
+/* Button */
+.content .add-student-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 4px;
+    background: #2b8ddb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .12s ease, transform .08s ease;
+}
+
+.content .add-student-box button:hover {
+    background: #1f6fb7;
+    transform: translateY(-1px);
+}
+
+/* Small responsive tweak */
+@media (max-width: 600px) {
+    .content .add-student-box { margin: 18px; padding: 16px; }
+}
+/* ===========================
+   STUDENT LIST TABLE
+   =========================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+table th {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+table tr:hover {
+  background: #f5f5f5;
+}
+
+table td a {
+  margin: 0 5px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+table td a:hover {
+  opacity: 0.7;
+}
+
+/* ===========================
+   ADD STUDENT FORM
+   =========================== */
+.form-box {
+  max-width: 500px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box input, 
+.form-box select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-box input:focus, 
+.form-box select:focus {
+  border: 1px solid #007bff;
+}
+
+.form-box button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.form-box button:hover {
+  background: #0056b3;
+}
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+
+/* Modal Box */
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close Button */
+.modal .close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal .close:hover {
+  color: red;
+}
+.add-student-inline {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.add-student-inline:hover {
+  background: #45a049;
+}
+
+.analysis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.analysis-table th, 
+.analysis-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.analysis-table th {
+    background: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+.analysis-table tr:hover {
+    background: #f1f1f1;
+}
+
+/* Scrollable student list */
+.student-table-container {
+    max-height: 400px; /* adjust height as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.student-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table-container th,
+.student-table-container td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.student-list-wrapper {
+    max-height: 400px; /* only the list scrolls */
+    overflow-y: auto;
+    display: block; /* allows scrolling */
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    min-width: 100px; /* keeps columns aligned */
+}
+
+.student-table thead th {
+    position: sticky; /* headers stay visible */
+    top: 0;
+    background: #f1f1f1;
+    z-index: 1;
+}
+.content table {
+    font-size: 12px; /* smaller font for all tables in content */
+}
+/* ---------- Mobile: Disable sidebar expansion ---------- */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px !important;       /* always collapsed */
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        overflow: hidden;
+    }
+
+    /* Disable hover/expand */
+    .sidebar:hover {
+        width: 60px !important;       /* force collapsed on hover */
+    }
+
+    /* Prevent JS from expanding sidebar on mobile */
+    .sidebar.expanded,
+    .sidebar.locked {
+        width: 60px !important;       /* always collapsed */
+    }
+
+    .sidebar span {
+        display: none;                /* hide text labels */
+    }
+
+    /* Content respects sidebar width */
+    .content {
+        margin-left: 60px !important;  /* shift by sidebar width */
+        width: calc(100% - 60px);      /* take the rest of the space */
+        position: relative;
+        z-index: 1;
+    }
+}
+
